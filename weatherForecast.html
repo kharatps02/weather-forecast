@@ -1,0 +1,43 @@
+<!doctype html>
+<html ng-app="wfApp">
+	<head>
+	    <script src="angular.js"></script>
+		<script src="weatherForecast.js"></script>	
+		<link rel="stylesheet" href="weatherForecast.css">
+		<link rel="stylesheet" href="bootstrap.css">
+	</head>
+	<body style=" background-color: #AABBFF;" >
+		<center>
+	    <div style="width:35%">
+		  <div ng-controller ="weatherForecast" >
+			<p><p><p>
+			<input type="text" ng-model ="cityName" required class="search-query" placeholder="Enter multiple city names separated by , char ."ng-change="showMsg=''"  > </input>
+			<input type="button" ng-click="loadDataByCityNames()" class="btn btn-primary" value="Sarch"></button><br>
+			<label> <h3>{{showMsg}}</h3></label><br>
+			<div ng-repeat="weatherStore in dataArrayStore "><br>
+				 <label> <h3>Weather forecast for the 14 days for {{weatherStore.city.name}} city</h3></label><br>
+				 <div ng-repeat="dayWeather in weatherStore.list" >	
+				
+	 				<div class="row-div">			
+	 					 <div class="row-div-section1">
+	 					 	<span  ><h2>{{dayWeather.dt*1000 | date:'EEE'}}</h2></span><br>
+	 					 	<span  ><h4>{{ dayWeather.dt*1000 | date:'MMM dd'}}</h4></span>
+	 					</div> 
+	 					<div class="row-div-section1">
+	 						<img ng-src="http://openweathermap.org/img/w/{{dayWeather.weather[0].icon}}.png" heigth="100%" width="100%">
+	 					</div> 
+	 					<div class="row-div-section2">
+	 							<span class="badge badge-warning">{{dayWeather.temp.min}} &#176;C</span>&nbsp;&nbsp;
+								<span class="badge badge">{{dayWeather.temp.max}} &#176;C </span> &nbsp;&nbsp;
+								{{dayWeather.weather[0].main}}<br>
+								<i>{{dayWeather.weather[0].description}}</i><br>
+								Humidity :{{dayWeather.humidity}}% , Pressure :{{dayWeather.pressure}} hpa
+	 					</div> 
+	 				</div>
+				  </div>
+			</div>
+		</div>
+	  </div>
+	</center>
+	</body>
+</html>
