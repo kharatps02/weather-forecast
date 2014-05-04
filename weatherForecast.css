@@ -1,0 +1,28 @@
+
+.row-div {
+  background-color: #AABBFF;
+  width : 100%;
+  height: 100px;
+  -webkit-transition:0.3s;
+  transition:0.7s;
+}
+
+.row-div:hover {
+    background-color: #99a8e5;
+   -webkit-transform: scale(1.1);
+   transform: scale(1.1);
+   height: 102px;
+   opacity:1;
+}
+
+.row-div-section1 {
+      width   : 23%; 
+      height  : 99px; 
+      float   : left;
+      
+  }
+ .row-div-section2 {    
+      width   : 50%; 
+      height  : 99px; 
+      float   : left;
+ }
